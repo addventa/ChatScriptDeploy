@@ -5,7 +5,7 @@ This repository contains 2 useful scripts which install bots and different versi
 - install.sh
 - deploybot.sh
 
-## Install ChatScript on your server
+## Install ChatScript on your Linux server
 
 ### How to use the script ?
 
@@ -27,7 +27,7 @@ Specify the ChatScript version to download it, it's the 7.3 version by default.
 ### Prerequisites
 
 You must have a bot, and his data must be organized like in this repository:
-- BOTADATA/{botname}/*.top
+- BOTADATA/*.top
 - files1.txt
 
 ### What does Travis do ?
