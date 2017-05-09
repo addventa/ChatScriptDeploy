@@ -10,10 +10,10 @@ outputmacro: ^btn(^txt)
 
 topic: ~hello repeat []
 
-t: () ^keep()
+t: ()
 	Hello World!
 
-u: BTN () ^keep()
+u: BTN ()
 	look, Smooch can display buttons!
 	^btn(^"nice!") ^btn(^"how?") ^btn(^"what else?")
 	a: (nice)
