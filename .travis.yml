@@ -1,0 +1,52 @@
+language: bash
+
+sudo: false
+
+env:
+  global:
+    - secure: 549851351984132896537
+    - GIT_NAME: Travis CI
+    - GIT_EMAIL: builds@travis-ci.org
+    - TRAVIS_REPO_SLUG: addventa/ChatScriptDeploy
+    - GIT_BRANCH: openSource
+    - GH_TOKEN: 807e7fae01b7948d63eca9e3b0853eb0b18ad9d2 # Your Github token
+    - GIT_TAG: 'HelloWorld-1.0-$TRAVIS_BUILD_NUMBER'
+
+git:
+  submodules: false
+
+# blocklist
+branches:
+  except:
+  - master
+  - releases
+
+# safelist
+branches:
+  only:
+  - openSource
+
+before_install:
+  - echo -e "machine github.com\n  login ci-user\n  password $GH_TOKEN" >> ~/.netrc
+
+install: true
+
+script: 
+  - zip $GIT_TAG.zip -r BOTDATA/ files1.txt
+
+after_success:
+  - bash release/changefile.sh
+
+before_deploy:
+  - bash release/deploy.sh
+
+deploy:
+  provider: releases
+  api_key: $GH_TOKEN
+  file: 
+    - "$GIT_TAG.zip"
+  skip_cleanup: true
+  on:
+    repo: addventa/ChatScriptDeploy
+    branch: $GIT_BRANCH
+    tags: false

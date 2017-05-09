@@ -1,0 +1,37 @@
+concept: ~boop [boop beep]
+
+outputmacro: ^btn(^txt)
+  ^"%[^txt](reply:)"
+
+ outputmacro: ^btnPL(^label ^payload)
+  ^"%[^label](reply:^payload)"
+
+
+
+topic: ~hello repeat []
+
+t: () ^keep()
+	Hello World!
+
+u: BTN () ^keep()
+	look, Smooch can display buttons!
+	^btn(^"nice!") ^btn(^"how?") ^btn(^"what else?")
+	a: (nice)
+		I knew you'd be impressed. 😃 
+	a: (how)
+		the syntax is quite simple, you should check the source code.
+		$_link=^"https://github.com/addventa/ChatScriptAv/tree/openSource"
+		^"%[Go to GitHub]($_link)"
+	a: (else)
+		you can also use it to send clickable links:
+		$_link=^"https://en.wikipedia.org/wiki/Hyperlink"
+		^"%[link]($_link)"
+
+u: (button) ^keep()
+	^reuse(BTN)
+
+?: () ^keep()
+	42
+
+s: () ^keep()
+	^pick(~boop) ^pick(~boop) ^pick(~boop)

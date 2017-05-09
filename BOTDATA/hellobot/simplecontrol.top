@@ -1,0 +1,32 @@
+outputmacro: hellobot()
+	$cs_token = #DO_ESSENTIALS
+	$cs_control_main = ~control
+	$userprompt = ^"%user: >"
+	$botprompt = ^"hellobot: "
+	$cs_control_post = ~xpost_control
+
+
+table: defaultbot (^name)
+	^createfact(^name defaultbot defaultbot)
+	DATA:
+	hellobot
+
+topic: ~xpost_control system repeat ()
+t: () ^keep()
+	^preprint( \[ ^'{}' \] )
+
+topic: ~control system ()
+u: ( \[ _* ) 
+	# orig1: %originalsentence
+	^next(INPUT)
+	# orig2: %originalsentence
+	^reuse(MAIN)
+
+u: MAIN ()
+	if (!%topic)  {
+		^gambit(~hello)
+		^end(RULE)
+	}
+	nofail(TOPIC ^rejoinder())
+	if (%response == 0) { nofail(TOPIC ^respond(%topic)) }
+	if (%response == 0) { nofail(TOPIC ^gambit(%topic)) }
