@@ -1,1 +1,1 @@
-../../BOTS/ChatScriptDeploy/BOTDATA/hellobot/
+../../BOTS/ChatScriptDeploy/BOTDATA/
