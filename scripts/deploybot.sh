@@ -45,7 +45,7 @@ echo
 #-----------------------
 PROJECTNAME=$1
 ZIP="$PROJECTNAME-$VERSION.zip"
-REPO="addventa/$PROJECTNAME"
+REPO="$PROJECTNAME"
 GITHUB="https://api.github.com"
 CSPATH="$(pwd)/CS"
 BOTPATH="$(pwd)/BOTS"
