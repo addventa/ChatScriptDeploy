@@ -5,6 +5,10 @@ This repository contains 2 useful scripts which install bots and different versi
 - install.sh
 - deploybot.sh
 
+We also have a simple bot which will allows you to tryout our scripts without having to create a bot.
+
+Follow the steps below to assimilate how the scripts works, as well as the automatic-release of travis.
+
 ## Install ChatScript on your Linux server
 
 ### How to use the script ?
@@ -33,7 +37,9 @@ You must have a bot, and his data must be organized like in this repository:
 ### What does Travis do ?
 
 There is a .travis.yml which is our travis file to auto-release the bot.
-Travis is triggered at each commit on the branch 'openSource', execute the packaging script and create a release from a tag.
+Travis is triggered at each commit on the branch 'master', execute the packaging script and create a release from a tag.
+
+The .travis.yml file need the scripts in release folder to create and commit release on github.
 
 * [Travis Documentation](https://docs.travis-ci.com/) - For more informations.
 
@@ -57,21 +63,22 @@ Enter your github token.
 
 - Download the Bot version selected in BOTS folder.
 - Start or Restart your current Bot.
-- We chose to put the folders TOPIC, USERS and LOGS in the Bot folder because this is specific to each bot, not to ChatScript.
+- Reset the cron job depending on the bot you just have deployed.
+- We chose to put the folders TOPIC, USERS and LOGS in the Bot folder because this is specific to each bot, not to ChatScript; it is this organization that allows us to have a better logic in our architechture.
 - Delete your private data (BOTDATA, files1.txt)
 
 If you are looking for more info, you are free to read the code :).
 
-### Tree
+### Final Tree Example
 
 ```
 BOTS
  |------ HelloBot
-          |------ BOTDATA
+          |------ BOTDATA*
           |------ LOGS
           |------ TOPIC
           |------ USERS
-          |------ files1.txt
+          |------ files1.txt*
 CS
  |------ authorizedIP.txt
  |------ ChatScript -> ChatScript-7.3
@@ -79,3 +86,5 @@ CS
  |------ ChatScript-7.1
           |------ authorizedIP.txt -> ../authorizedIP.txt
 ```
+
+* *Deleted at the end of the deployment to not leave your own data.

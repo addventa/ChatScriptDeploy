@@ -4,27 +4,21 @@ sudo: false
 
 env:
   global:
-    - secure: 549851351984132896537
+    - secure: 123123123123123123
     - GIT_NAME: Travis CI
     - GIT_EMAIL: builds@travis-ci.org
-    - TRAVIS_REPO_SLUG: addventa/ChatScriptDeploy
-    - GIT_BRANCH: openSource
-    - GH_TOKEN: 807e7fae01b7948d63eca9e3b0853eb0b18ad9d2 # Your Github token
-    - GIT_TAG: 'HelloWorld-1.0-$TRAVIS_BUILD_NUMBER'
+    - TRAVIS_REPO_SLUG: ChatScriptDeploy # Your repository
+    - GIT_BRANCH: master
+    - GH_TOKEN: 42Y42Y42Y42Y42Y # Your Github token
+    - GIT_TAG: 'HelloBot-1.0-$TRAVIS_BUILD_NUMBER'
 
 git:
   submodules: false
 
-# blocklist
-branches:
-  except:
-  - master
-  - releases
-
 # safelist
 branches:
   only:
-  - openSource
+  - master
 
 before_install:
   - echo -e "machine github.com\n  login ci-user\n  password $GH_TOKEN" >> ~/.netrc
@@ -47,6 +41,6 @@ deploy:
     - "$GIT_TAG.zip"
   skip_cleanup: true
   on:
-    repo: addventa/ChatScriptDeploy
+    repo: ChatScriptDeploy
     branch: $GIT_BRANCH
     tags: false
