@@ -20,7 +20,7 @@ u: BTN ()
 		I knew you'd be impressed. 😃 
 	a: (how)
 		the syntax is quite simple, you should check the source code.
-		$_link=^"https://github.com/addventa/ChatScriptDeploy"
+		$_link=^"https://github.com/ChatScriptDeploy"
 		^"%[Go to GitHub]($_link)"
 	a: (else)
 		you can also use it to send clickable links:
