@@ -41,6 +41,6 @@ deploy:
     - "$GIT_TAG.zip"
   skip_cleanup: true
   on:
-    repo: ChatScriptDeploy
+    repo: $TRAVIS_REPO_SLUG
     branch: $GIT_BRANCH
     tags: false
